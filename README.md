@@ -1,5 +1,7 @@
 # Embedded Systems Development Kit (ESDK)
 
+![logo (https://raw.githubusercontent.com/encrypter15/ESDK/refs/heads/main/logo.jpg)
+
 ## Overview
 The Embedded Systems Development Kit (ESDK) is a comprehensive toolkit for programming IoT devices, drones, and robotics. It includes a hardware abstraction layer (HAL), simulator, and support for STM32 and Raspberry Pi platforms.
 
