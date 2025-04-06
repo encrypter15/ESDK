@@ -22,7 +22,8 @@
 #include "logger.h"
 #include "visualizer.h"
 
-#if defined(STM32_PLATFORM)
+#ifdef STM32_PLATFORM
+extern "C" void STM32CubeMX_Init(void);
 STM32HAL hal;
 #elif defined(RASPI_PLATFORM)
 RaspberryPiGPIO hal;
@@ -42,6 +43,10 @@ void sensorTask(void* param) {
 }
 
 int main() {
+    #ifdef STM32_PLATFORM
+    STM32CubeMX_Init();
+    #endif
+
     Config config("config.json");
     Logger logger("esdk.log");
     CloudClient cloud("https://api.example.com/data", "your-api-key");

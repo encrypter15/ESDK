@@ -5,7 +5,7 @@
         "threshold": 30.0
     },
     "motor_controller": {
-        "pwm_pin": 2,
+        "pwm_pin": 1,
         "direction_pin": 3
     }
 }

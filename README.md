@@ -10,10 +10,8 @@ The Embedded Systems Development Kit (ESDK) is a comprehensive toolkit for progr
 - **MIT**
 
 ## Version
-- **1.3**
+- **1.4**
 
-## Date
-- **April 05, 2025**
 
 ## Features
 - Hardware Abstraction Layer (HAL) for STM32 and Raspberry Pi
@@ -33,18 +31,18 @@ The Embedded Systems Development Kit (ESDK) is a comprehensive toolkit for progr
 
 ## Prerequisites
 - **STM32:** STM32Cube HAL, FreeRTOS, arm-none-eabi-g++
-- **Raspberry Pi:** wiringPi, libcurl, SFML, bluetooth
+- **Raspberry Pi:** wiringPi, wiringPiSPI, libcurl, SFML, bluetooth
 - **General:** nlohmann/json, g++
 
 ## Compilation
 ### STM32
 ```bash
-arm-none-eabi-g++ -DSTM32_PLATFORM -mcpu=cortex-m4 -mthumb main.cpp -o esdk.elf -L/path/to/stm32cube/libs -lstm32f4xx_hal -lfreertos
+arm-none-eabi-g++ -DSTM32_PLATFORM -mcpu=cortex-m4 -mthumb main.cpp stm32cubemx.c -o esdk.elf -L/path/to/stm32cube/libs -lstm32f4xx_hal -lfreertos
 ```
 
 ### Raspberry Pi
 ```bash
-g++ -DRASPI_PLATFORM main.cpp -o esdk -lwiringPi -lcurl -lsfml-graphics -lsfml-window -lsfml-system -lbluetooth -lpthread
+g++ -DRASPI_PLATFORM main.cpp -o esdk -lwiringPi -lwiringPiSPI -lcurl -lsfml-graphics -lsfml-window -lsfml-system -lbluetooth -lpthread
 ```
 
 ## Usage
@@ -53,5 +51,6 @@ g++ -DRASPI_PLATFORM main.cpp -o esdk -lwiringPi -lcurl -lsfml-graphics -lsfml-w
 3. Flash (STM32) or run (Raspberry Pi) the binary.
 
 ## Notes
-- Replace placeholders in HAL with actual ADC/PWM implementations.
-- Ensure dependencies are installed and configured.
+- STM32 setup uses ADC1 on PA0 and TIM2 on PA1 for PWM.
+- Raspberry Pi uses MCP3008 for ADC and GPIO 18 for PWM.
+- Install dependencies before compiling.
