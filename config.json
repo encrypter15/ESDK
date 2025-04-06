@@ -1,0 +1,11 @@
+{
+    "temperature_sensor": {
+        "analog_pin": 0,
+        "led_pin": 1,
+        "threshold": 30.0
+    },
+    "motor_controller": {
+        "pwm_pin": 2,
+        "direction_pin": 3
+    }
+}
